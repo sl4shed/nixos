@@ -7,5 +7,5 @@
 		imports = [
 			/etc/nix/hardware-configuration.nix # uhmm
 		];
-	}
+	};
 }
