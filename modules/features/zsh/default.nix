@@ -19,13 +19,9 @@
       # else in the expression. Imports works as expected.
       imports = [];
       options = {
-        # Make a new option with lib.mkOption
         enableHighlighting = lib.mkOption {
-          # Set type, eg bool, str, int. Custom types can be created
           type = lib.types.bool;
-          # Default value is required
           default = false;
-          # Description is optional but useful
           description = "Enable syntax highlighting";
         };
       };
@@ -39,10 +35,9 @@
             zsh = self'.packages.zsh;
           })
         ];
+        
         programs.zsh = {
           enable = true;
-          # You can use config options through the config attribute, in place of a normal value,
-          # the same way you can in other programming languages.
           enableSyntaxHighlighting = config.enableHighlighting;
         };
       };

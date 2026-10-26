@@ -3,6 +3,9 @@
 		modules = with self.nixosModules; [
 			frameworkConfiguration
 			system
+			zsh ({...}: {
+				enableHighlighting = true;
+			})
 		];
 	};
 }
