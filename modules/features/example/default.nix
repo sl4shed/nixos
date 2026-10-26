@@ -6,7 +6,7 @@
 				inherit pkgs;
 				package = pkgs.bash;
 				flags = {
-					"--rcfile" = ./bashrc
+					"--rcfile" = ./bashrc;
 				};
 			};
 		};

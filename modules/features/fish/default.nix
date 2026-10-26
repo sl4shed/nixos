@@ -1,10 +1,10 @@
 {inputs, ...}: {
-	perSystem = {pkgs, ...}: {
-		packages = {
-			fish = inputs.wrappers.lib.wrapPackage {
-				inherit pkgs;
-				package = pkgs.fish;
-			};
-		};
-	};
+  perSystem = {pkgs, lib, ...}: {
+    packages.fish = inputs.wrappers.wrappers.fish.wrap {
+      inherit pkgs;
+      shellAliases = {
+        cat = lib.getExe pkgs.bat;
+      };
+    };
+  };
 }
