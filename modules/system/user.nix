@@ -1,12 +1,15 @@
-{...}: {
-	flake.nixosModules.user = {...}: {
-		users.users.andrew = {
-			isNormalUser = true;
-			initialPassword = "password";
-			extraGroups = [
-				"root"
-				"wheel"
-			];
-		};
-	};
+{ pkgs, ... }: {
+  flake.nixosModules.user = { ... }: {
+    programs.fish.enable = true;
+    users.users.andrew = {
+      isNormalUser = true;
+      initialPassword = "password";
+      extraGroups = [
+        "root"
+        "wheel"
+      ];
+
+      shell = pkgs.fish;
+    };
+  };
 }
